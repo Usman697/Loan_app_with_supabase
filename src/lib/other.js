@@ -74,3 +74,39 @@ export async function CheckSession() {
   }
 }
 
+
+export async function AllLoanUsers() {
+  try {
+    const { data, error } = await supabase
+      .from('loanDetails')
+      .select()
+    if (data) {
+      // console.log(data);
+      return data;
+    }
+    if (error) throw error;
+  } catch (error) {
+    console.log(error);
+
+  }
+
+}
+
+export async function UpdateData({tableName, statusResult, reqId}) {
+  try {
+    const { data, error } = await supabase
+      .from(tableName)
+      .update({ status: statusResult })
+      .eq('id', reqId)
+      .select()
+
+    if(data){
+      console.log(data);
+      // return data;
+    }  
+    if(error) throw error;
+  } catch (error) {
+    console.log(error);
+    
+  }
+}

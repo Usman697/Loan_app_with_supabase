@@ -2,7 +2,7 @@ import Logo from "../images/logo.jpg";
 import { useState } from "react";
 import { signUp } from "../lib/auth";
 import { Link } from "react-router-dom";
-// import { insertUser } from "../lib/other";
+
 
 export default function SignUp() {
   const [email, setEmail] = useState();
@@ -12,34 +12,13 @@ export default function SignUp() {
   async function userSignUp() {
     console.log("Starting signup with:", email, password, name);
 
-    const response = await signUp({ Name: name,Email: email, Password: password });
+    const response = await signUp({
+      Name: name,
+      Email: email,
+      Password: password,
+    });
     console.log("Auth response:", response);
-    //********************************************* */
-    // if (response) {
-
-    //   const inserted = await insertUser({Name: name, Email : email, password:password});
-    //   console.log("Insert response:", inserted);
-    //   if(inserted){
-    //     setName('')
-    //     setEmail('')
-    //     setPassword('')
-    //   }
-
-    // } else {
-    //   console.log("Signup failed, insert not called");
-    // }
-    //********************************************* */
   }
-    // async function userSignUp() {
-    //   const response = await signUp({ Email: email, Password: password });
-
-    //   if(response){
-    //       // alert("Request Sent")
-    //       const inserIntoUser = await insertUser({ Name: name, Email: email,  })
-    //       console.log("Data inserted:", inserIntoUser);
-
-    //   }
-    // }
 
   return (
     <>

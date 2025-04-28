@@ -23,9 +23,12 @@ export default function LogIn() {
 
     if (resoponse) {
       const user = await getUser();
+      console.log(resoponse);
+      localStorage.setItem("currentSession", JSON.stringify(resoponse.session));
+      
       console.log(user.email);
       console.log(user.id);
-      console.log(user.user_metadata.firstName);
+        console.log(user.user_metadata.firstName);
       setEmail("");
       setPassword("");
       const currentUser = {

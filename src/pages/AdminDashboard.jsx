@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AllLoanUsers } from "../lib/other";
 import { UpdateData } from "../lib/other";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar({ setView }) {
   return (
@@ -36,7 +37,16 @@ function LoanRequests() {
     setRequests(requestData);
   }
 
+  const checkSession = JSON.parse(localStorage.getItem("currentSession"));
+  const navigate = useNavigate();
+
   useEffect(() => {
+    if (!checkSession) {
+      console.log(checkSession);
+      console.log("hello");
+
+      navigate("/signin");
+    }
     UsersData();
   }, []);
 

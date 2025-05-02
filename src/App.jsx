@@ -4,7 +4,6 @@ import SignUp from "./components/SignUp";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import "react-toastify/dist/ReactToastify.css";
-// hello world
 function App() {
   return (
     <>
@@ -12,6 +11,7 @@ function App() {
         <Route path="/signin" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/*" element={<Dashboard />} />
+        <Route path="/admindashboard" element={<AdminDashboard/>}/>
       </Routes>
     </>
   );

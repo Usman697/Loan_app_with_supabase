@@ -1,8 +1,8 @@
-import Logo from "../images/logo.jpg";
+// import Logo from "../images/logo.jpg";
 import { useState } from "react";
 import { signUp } from "../lib/auth";
 import { Link } from "react-router-dom";
-// import { insertUser } from "../lib/other";
+
 
 export default function SignUp() {
   const [email, setEmail] = useState();
@@ -12,40 +12,19 @@ export default function SignUp() {
   async function userSignUp() {
     console.log("Starting signup with:", email, password, name);
 
-    const response = await signUp({ Name: name,Email: email, Password: password });
+    const response = await signUp({
+      Name: name,
+      Email: email,
+      Password: password,
+    });
     console.log("Auth response:", response);
-    //********************************************* */
-    // if (response) {
-
-    //   const inserted = await insertUser({Name: name, Email : email, password:password});
-    //   console.log("Insert response:", inserted);
-    //   if(inserted){
-    //     setName('')
-    //     setEmail('')
-    //     setPassword('')
-    //   }
-
-    // } else {
-    //   console.log("Signup failed, insert not called");
-    // }
-    //********************************************* */
   }
-    // async function userSignUp() {
-    //   const response = await signUp({ Email: email, Password: password });
-
-    //   if(response){
-    //       // alert("Request Sent")
-    //       const inserIntoUser = await insertUser({ Name: name, Email: email,  })
-    //       console.log("Data inserted:", inserIntoUser);
-
-    //   }
-    // }
 
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img alt="" src={Logo} className="mx-auto h-10 w-auto" />
+          <img alt="" src='/images/logo.jpg' className="mx-auto h-10 w-auto" />
           <h2 className="mt-10 text-center text-2xl font-bold tracking-tight text-gray-900">
             Sign Up to your account
           </h2>
